@@ -12,7 +12,7 @@ public class CreamCheese extends AdicionaisLanche{
     
     @Override
     public String getDescricao(){
-        return this.recheio_base.getDescricao() + " com Cream Cheese";
+        return this.recheio_base.getDescricao() + ",Cream Cheese";
     }
     
         @Override

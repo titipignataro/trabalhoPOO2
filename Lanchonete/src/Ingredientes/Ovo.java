@@ -12,7 +12,7 @@ public class Ovo extends AdicionaisLanche{
     
     @Override
     public String getDescricao(){
-        return this.recheio_base.getDescricao() + " com Ovo";
+        return this.recheio_base.getDescricao() + ",Ovo";
     }
     
     @Override

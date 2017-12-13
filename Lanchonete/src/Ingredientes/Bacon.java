@@ -12,7 +12,7 @@ public class Bacon extends AdicionaisLanche{
     
     @Override
     public String getDescricao(){
-        return this.recheio_base.getDescricao() + " com Bacon";
+        return this.recheio_base.getDescricao() + ",Bacon";
     }
     
     @Override

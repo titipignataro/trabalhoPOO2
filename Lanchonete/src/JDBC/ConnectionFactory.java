@@ -19,7 +19,7 @@ private static Connection conexao;
             synchronized (ConnectionFactory.class){
                 if(conexao == null){
                     try{
-                        conexao = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","poo2");
+                        conexao = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","pass");
                         System.out.println("Conexao estabelecida");
                     }catch(SQLException e){
                         System.out.println("Erro na conexao");

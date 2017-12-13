@@ -1,6 +1,6 @@
 package Ingredientes;
 
 public enum Queijo {
-    Chedar, Prato, Suico;
+    Chedar, Prato, Suico,Sem;
     
 }

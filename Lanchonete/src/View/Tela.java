@@ -8,16 +8,33 @@ public class Tela extends javax.swing.JFrame {
         initComponents();
     }
 
-    public String getTxtRecheio(){
-        return recheio.getText();
+    public String getCbRecheio(){
+        return (String) recheio.getSelectedItem();
         
     }
-    public String getTxtQueijo(){
-        return queijo.getText();
+    public String getCbQueijo(){
+        return (String) queijo.getSelectedItem();
     }
-    public String getTxtTamanho(){
-        return tamanho.getText();
+    public String getCbTamanho(){
+        return (String) tamanho.getSelectedItem();
     }
+    
+    public boolean getChOvo(){
+        return ovo.isSelected();
+    }
+    
+    public boolean getChSalada(){
+        return salada.isSelected();
+    }
+    public boolean getChCreamcheese(){
+        return creamcheese.isSelected();
+    }
+    public boolean getChBacon(){
+        return bacon.isSelected();
+    }
+    
+    
+    
     
     public void addSalvaListener(ActionListener listenForSalvarButton){
         btnRegistrarPedido.addActionListener(listenForSalvarButton);
@@ -33,21 +50,23 @@ public class Tela extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        btnCardapio = new javax.swing.JButton();
         btnRegistrarPedido = new javax.swing.JButton();
         txtTamanho = new javax.swing.JLabel();
         txtQueijo = new javax.swing.JLabel();
         txtRecheio = new javax.swing.JLabel();
-        recheio = new javax.swing.JTextField();
-        queijo = new javax.swing.JTextField();
-        tamanho = new javax.swing.JTextField();
+        recheio = new javax.swing.JComboBox<>();
+        queijo = new javax.swing.JComboBox<>();
+        tamanho = new javax.swing.JComboBox<>();
+        txtAdicionais = new javax.swing.JLabel();
+        ovo = new javax.swing.JCheckBox();
+        bacon = new javax.swing.JCheckBox();
+        creamcheese = new javax.swing.JCheckBox();
+        salada = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
-        jLabel1.setText("Lanchonete ");
-
-        btnCardapio.setText("Cardapio");
+        jLabel1.setText("Lanchonete - Menu de Lanches");
 
         btnRegistrarPedido.setText("Realizar Pedido");
 
@@ -60,63 +79,97 @@ public class Tela extends javax.swing.JFrame {
         txtRecheio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtRecheio.setText("Recheio");
 
-        recheio.setToolTipText("Recheio");
+        recheio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hamburger", "Peito de Peru", "Peito de Frango" }));
 
-        queijo.setToolTipText("Recheio");
+        queijo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chedar", "Prato", "Suíço", "Sem Queijo" }));
 
-        tamanho.setToolTipText("Recheio");
+        tamanho.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pequeno", "Medio", "Grande" }));
+
+        txtAdicionais.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtAdicionais.setText("Adicionais");
+
+        ovo.setText("Ovo");
+
+        bacon.setText("Bacon");
+
+        creamcheese.setText("Cream Cheese");
+
+        salada.setText("Salada");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(345, 345, 345)
+                .addGap(90, 90, 90)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnRegistrarPedido)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(txtQueijo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 231, Short.MAX_VALUE)
-                        .addComponent(btnCardapio)
-                        .addGap(41, 41, 41))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(149, 149, 149)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtRecheio)
-                    .addComponent(txtQueijo)
-                    .addComponent(txtTamanho))
-                .addGap(94, 94, 94)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tamanho, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(queijo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(recheio, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTamanho)
+                            .addComponent(tamanho, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtRecheio)
+                            .addComponent(recheio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(179, 179, 179)
+                                .addComponent(txtAdicionais)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(160, 160, 160)
+                                .addComponent(ovo)
+                                .addGap(46, 46, 46)
+                                .addComponent(salada)
+                                .addGap(18, 18, 18)
+                                .addComponent(creamcheese)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(bacon)
+                                .addGap(0, 122, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addComponent(btnRegistrarPedido)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(queijo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCardapio))
-                        .addGap(39, 39, 39)
-                        .addComponent(txtRecheio))
-                    .addComponent(recheio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtRecheio)
+                    .addComponent(txtAdicionais))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(recheio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ovo)
+                        .addComponent(bacon)
+                        .addComponent(salada)
+                        .addComponent(creamcheese)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(txtQueijo)
+                .addGap(18, 18, 18)
+                .addComponent(queijo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtQueijo)
-                    .addComponent(queijo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTamanho)
-                    .addComponent(tamanho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                .addComponent(txtTamanho)
+                .addGap(18, 18, 18)
+                .addComponent(tamanho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65)
                 .addComponent(btnRegistrarPedido)
-                .addGap(45, 45, 45))
+                .addContainerGap())
         );
 
         pack();
@@ -155,12 +208,16 @@ public class Tela extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCardapio;
+    private javax.swing.JCheckBox bacon;
     private javax.swing.JButton btnRegistrarPedido;
+    private javax.swing.JCheckBox creamcheese;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField queijo;
-    private javax.swing.JTextField recheio;
-    private javax.swing.JTextField tamanho;
+    private javax.swing.JCheckBox ovo;
+    private javax.swing.JComboBox<String> queijo;
+    private javax.swing.JComboBox<String> recheio;
+    private javax.swing.JCheckBox salada;
+    private javax.swing.JComboBox<String> tamanho;
+    private javax.swing.JLabel txtAdicionais;
     private javax.swing.JLabel txtQueijo;
     private javax.swing.JLabel txtRecheio;
     private javax.swing.JLabel txtTamanho;

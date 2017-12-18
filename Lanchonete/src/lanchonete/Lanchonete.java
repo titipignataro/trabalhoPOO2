@@ -31,6 +31,12 @@ public class Lanchonete {
         
         t.setVisible(true);
         
+        
+        
+        Cozinha cozinha = new Cozinha();
+        cozinha.registerObserver(t);
+        cozinha.prepararPedido("Medio", Queijo.SUICO.toString(), r1.toString());
+        cozinha.notifyObservers();
     
     }
     

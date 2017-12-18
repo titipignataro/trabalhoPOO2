@@ -79,19 +79,19 @@ public class PedidoControl {
 
 				switch (q) {
 				case "Chedar":
-					obj.setQueijo(Queijo.Chedar);
+					obj.setQueijo(Queijo.CHEDDAR);
 					break;
 
 				case "Prato":
-					obj.setQueijo(Queijo.Prato);
+					obj.setQueijo(Queijo.PRATO);
 					break;
 
 				case "Suíço":
-					obj.setQueijo(Queijo.Suico);
+					obj.setQueijo(Queijo.SUICO);
 					break;
 
 				case "Sem Queijo":
-					obj.setQueijo(Queijo.Sem);
+					obj.setQueijo(Queijo.SEM);
 				}
 
 				String t = theView.getCbTamanho();

@@ -1,8 +1,9 @@
 package View;
 
 import java.awt.event.ActionListener;
+import lanchonete.Observer;
 
-public class Tela extends javax.swing.JFrame {
+public class Tela extends javax.swing.JFrame implements Observer{
 
     public Tela() {
         initComponents();
@@ -62,6 +63,7 @@ public class Tela extends javax.swing.JFrame {
         bacon = new javax.swing.JCheckBox();
         creamcheese = new javax.swing.JCheckBox();
         salada = new javax.swing.JCheckBox();
+        Status = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,6 +98,8 @@ public class Tela extends javax.swing.JFrame {
 
         salada.setText("Salada");
 
+        Status.setText("Nenhum pedido");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -103,14 +107,6 @@ public class Tela extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(90, 90, 90)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtQueijo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTamanho)
-                            .addComponent(tamanho, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtRecheio)
@@ -131,16 +127,23 @@ public class Tela extends javax.swing.JFrame {
                                 .addComponent(bacon)
                                 .addGap(0, 122, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(45, 45, 45)
-                                .addComponent(btnRegistrarPedido)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnRegistrarPedido)
+                        .addGap(312, 312, 312))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(queijo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(txtQueijo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTamanho)
+                            .addComponent(tamanho, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Status)
+                .addGap(64, 64, 64))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,7 +170,9 @@ public class Tela extends javax.swing.JFrame {
                 .addComponent(txtTamanho)
                 .addGap(18, 18, 18)
                 .addComponent(tamanho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
+                .addGap(47, 47, 47)
+                .addComponent(Status)
+                .addGap(4, 4, 4)
                 .addComponent(btnRegistrarPedido)
                 .addContainerGap())
         );
@@ -208,6 +213,7 @@ public class Tela extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Status;
     private javax.swing.JCheckBox bacon;
     private javax.swing.JButton btnRegistrarPedido;
     private javax.swing.JCheckBox creamcheese;
@@ -222,4 +228,11 @@ public class Tela extends javax.swing.JFrame {
     private javax.swing.JLabel txtRecheio;
     private javax.swing.JLabel txtTamanho;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(boolean pronto) {
+        this.Status.setText("Pedido Pronto");
+    }
+
+
 }

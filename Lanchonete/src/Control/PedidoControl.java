@@ -21,6 +21,8 @@ import lanchonete.Cozinha;
 
 public class PedidoControl {
 
+        public static int numeroPedido = 1;
+    
 	private Tela theView;
 	private Produto theModel;
         private Cozinha cozinha;
@@ -119,14 +121,11 @@ public class PedidoControl {
                                         obj.getQueijo().toString(), 
                                         obj.getRecheio().toString());
                                 
-                                cozinha.notifyObservers();
-                                
-                                
-				PedidoDAO pedidodao = new PedidoDAO();
-                                
-                                System.out.println("PRECO : " + obj.getPreco());
-				pedidodao.cadastrarPedido(obj);
-                                
+                                PedidoDAO pedidodao = new PedidoDAO();
+                                pedidodao.cadastrarPedido(obj);
+                                theView.setTxtStatus("Pedido Nº" + numeroPedido +
+                                        " encaminhado á cozinha");
+                                numeroPedido += 1;
 
 			} catch (Exception exc) {
 				System.out.println("Erro AQUI! " + exc);

@@ -17,7 +17,7 @@ public class Garcom implements Observer{
     
     @Override
     public void update(boolean pronto, int numero) {
-    t.setTxtStatus("Pedido " + 10 + "Pronto!");
+    t.setTxtStatus("Pedido "+numero+" Pronto!");
     
     
     }

@@ -5,6 +5,7 @@ import java.util.List;
 import Ingredientes.Queijo;
 import Ingredientes.Recheio;
 import Model.beam.Lanche;
+import View.Telacozinha;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -16,8 +17,6 @@ public class Cozinha implements Observable {
 	private List<Observer> observers = new ArrayList<>();
 	private Lanche lanche;
 	private boolean pedidoPronto;
-        private int numeroPedido;
-
 	public void prepararPedido(String tamanho, String tipoQueijo, String recheio) {
 		Queijo queijo = null;
 
@@ -46,10 +45,10 @@ public class Cozinha implements Observable {
 	}
 
 	@Override
-	public void notifyObservers() {
+	public void notifyObservers(int numero) {
 		for (Observer ob : observers) {
 			System.out.println("Notificando observers!");
-			ob.update(this.pedidoPronto,numeroPedido);
+			ob.update(this.pedidoPronto,numero);
 		}
 	}
 

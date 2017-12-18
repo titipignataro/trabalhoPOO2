@@ -9,13 +9,14 @@ import Ingredientes.Queijo;
 import Ingredientes.Salada;
 import Model.beam.Garcom;
 import View.Tela;
+import View.Telacozinha;
 
 public class Lanchonete {
     
     
     public static void main(String[] args) {
     
-
+        /*
         Recheio r1 = new Hamburger();
         r1 = new Salada(r1);
         
@@ -23,8 +24,8 @@ public class Lanchonete {
         l1.setRecheio(r1);
         l1.setQueijo(Queijo.SUICO);
         l1.setTamanho("Medio");
-        
         System.out.println(l1.getDescricao());
+        */
  
         
 
@@ -37,6 +38,8 @@ public class Lanchonete {
         Garcom g3 = new Garcom(3,t);
         
         Cozinha c = new Cozinha();
+        Telacozinha tc = new Telacozinha(c);
+        
         
         c.registerObserver(g1);
         c.registerObserver(g2);
@@ -45,7 +48,12 @@ public class Lanchonete {
         
         PedidoControl control = new PedidoControl(t,l,c);
         
+        
+        tc.setVisible(true);
         t.setVisible(true);
+        
+        
+        
         
         
 

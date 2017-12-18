@@ -6,6 +6,6 @@ public interface Observable {
 
 	public void removeObserver(Observer observer);
 
-	public void notifyObservers();
+	public void notifyObservers(int numero);
 
 }

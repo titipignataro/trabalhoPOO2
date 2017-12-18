@@ -7,10 +7,12 @@ import Model.beam.Lanche;
 import Ingredientes.Recheio;
 import Ingredientes.Queijo;
 import Ingredientes.Salada;
+import Model.beam.Garcom;
 import View.Tela;
 
 public class Lanchonete {
-
+    
+    
     public static void main(String[] args) {
     
 
@@ -25,19 +27,28 @@ public class Lanchonete {
         System.out.println(l1.getDescricao());
  
         
+
+        
         Tela t = new Tela();
         Lanche l = new Lanche();
-        PedidoControl c = new PedidoControl(t,l);
+        
+        Garcom g1 = new Garcom(1,t);
+        Garcom g2 = new Garcom(2,t);
+        Garcom g3 = new Garcom(3,t);
+        
+        Cozinha c = new Cozinha();
+        
+        c.registerObserver(g1);
+        c.registerObserver(g2);
+        c.registerObserver(g3);
+        
+        
+        PedidoControl control = new PedidoControl(t,l,c);
         
         t.setVisible(true);
         
         
-        
-        Cozinha cozinha = new Cozinha();
-        cozinha.registerObserver(t);
-        cozinha.prepararPedido("Medio", Queijo.SUICO.toString(), r1.toString());
-        cozinha.notifyObservers();
-    
+
     }
     
 }

@@ -16,15 +16,19 @@ import Model.beam.Produto;
 import View.Tela;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.TimeUnit;
+import lanchonete.Cozinha;
 
 public class PedidoControl {
 
 	private Tela theView;
 	private Produto theModel;
-
-	public PedidoControl(Tela t, Produto p) {
+        private Cozinha cozinha;
+        
+	public PedidoControl(Tela t, Produto p,Cozinha cozinha) {
 		theView = t;
 		theModel = p;
+                this.cozinha = cozinha;
 		theView.addSalvaListener(new SalvaListener());
 	}
 
@@ -32,7 +36,7 @@ public class PedidoControl {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-
+                        
 			try {
 				Lanche obj = new Lanche();
 				Recheio recheio = null;
@@ -109,9 +113,21 @@ public class PedidoControl {
 				}
 
 				System.out.println(theView.getCbRecheio());
-
+                                
+                                
+                                cozinha.prepararPedido(obj.getTamanho(),
+                                        obj.getQueijo().toString(), 
+                                        obj.getRecheio().toString());
+                                
+                                cozinha.notifyObservers();
+                                
+                                
 				PedidoDAO pedidodao = new PedidoDAO();
+                                
+                                System.out.println("PRECO : " + obj.getPreco());
 				pedidodao.cadastrarPedido(obj);
+                                
+
 			} catch (Exception exc) {
 				System.out.println("Erro AQUI! " + exc);
 			}

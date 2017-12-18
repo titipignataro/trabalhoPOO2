@@ -1,10 +1,14 @@
 package View;
 
 import java.awt.event.ActionListener;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import lanchonete.Observer;
 
-public class Tela extends javax.swing.JFrame implements Observer{
+public class Tela extends javax.swing.JFrame{
 
+    
     public Tela() {
         initComponents();
     }
@@ -32,6 +36,10 @@ public class Tela extends javax.swing.JFrame implements Observer{
     }
     public boolean getChBacon(){
         return bacon.isSelected();
+    }
+    
+    public void setTxtStatus(String texto){
+        this.Status.setText(texto);
     }
     
     
@@ -229,10 +237,7 @@ public class Tela extends javax.swing.JFrame implements Observer{
     private javax.swing.JLabel txtTamanho;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void update(boolean pronto) {
-        this.Status.setText("Pedido Pronto");
-    }
+
 
 
 }

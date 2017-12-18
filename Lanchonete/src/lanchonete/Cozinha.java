@@ -7,15 +7,18 @@ import Ingredientes.Recheio;
 import Model.beam.Lanche;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Cozinha implements Observable {
 
 	private List<Observer> observers = new ArrayList<>();
 	private Lanche lanche;
 	private boolean pedidoPronto;
+        private int numeroPedido;
 
 	public void prepararPedido(String tamanho, String tipoQueijo, String recheio) {
-
 		Queijo queijo = null;
 
 		for (Queijo q : Queijo.values()) {
@@ -27,8 +30,9 @@ public class Cozinha implements Observable {
 		if (queijo == null) {
 			queijo = Queijo.SEM;
 		}
-
                 
+
+                                
 	}
 
 	@Override
@@ -45,8 +49,9 @@ public class Cozinha implements Observable {
 	public void notifyObservers() {
 		for (Observer ob : observers) {
 			System.out.println("Notificando observers!");
-			ob.update(this.pedidoPronto);
+			ob.update(this.pedidoPronto,numeroPedido);
 		}
 	}
+
 
 }

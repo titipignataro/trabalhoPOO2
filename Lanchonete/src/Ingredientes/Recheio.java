@@ -1,16 +1,17 @@
 package Ingredientes;
 
-public abstract class Recheio{
-    String descricao;
-    
-    
-    public String getDescricao(){
-        return descricao;
-    }
-    public void setDescricao(String d){
-        this.descricao = d;
-    }
-    
-   public abstract float calcularPreco();
-    
+// Decorator
+public abstract class Recheio {
+	String descricao;
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public abstract double calcularPreco();
+
 }

@@ -1,25 +1,19 @@
 package Ingredientes;
 
-public class CreamCheese extends AdicionaisLanche{
-        Recheio recheio_base;
-    
-    
-    public CreamCheese(Recheio l){
-        this.recheio_base = l;
-    }
+public class CreamCheese extends AdicionalLanche {
 
+	public CreamCheese(Recheio recheio) {
+		super(recheio);
+	}
 
-    
-    @Override
-    public String getDescricao(){
-        return this.recheio_base.getDescricao() + ",Cream Cheese";
-    }
-    
-        @Override
-    public float calcularPreco(){
-        return recheio_base.calcularPreco() + (float) 1.00;
-    }
+	@Override
+	public String getDescricao() {
+		return super.getDescricao() + ",Cream Cheese";
+	}
 
+	@Override
+	public double calcularPreco() {
+		return super.calcularPreco() + (double) 1.00;
+	}
 
-  
 }

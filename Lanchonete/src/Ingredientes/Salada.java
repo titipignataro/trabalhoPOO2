@@ -1,26 +1,19 @@
 package Ingredientes;
 
+public class Salada extends AdicionalLanche {
 
-public class Salada extends AdicionaisLanche{
-        Recheio recheio_base;
-    
-    
-    public Salada(Recheio l){
-        this.recheio_base = l;
-    }
+	public Salada(Recheio recheio) {
+		super(recheio);
+	}
 
+	@Override
+	public String getDescricao() {
+		return super.getDescricao() + ",Alface, Tomate e Rúcula";
+	}
 
-    
-    @Override
-    public String getDescricao(){
-        return this.recheio_base.getDescricao() + ",Alface, Tomate e Rúcula";
-    }
-    
-    @Override
-    public float calcularPreco(){
-        return recheio_base.calcularPreco();
-    }
+	@Override
+	public double calcularPreco() {
+		return super.calcularPreco();
+	}
 
-
-  
 }

@@ -19,7 +19,7 @@ public class Lanchonete {
         
         Lanche l1 = new Lanche();
         l1.setRecheio(r1);
-        l1.setQueijo(Queijo.Suico);
+        l1.setQueijo(Queijo.SUICO);
         l1.setTamanho("Medio");
         
         System.out.println(l1.getDescricao());

@@ -1,26 +1,19 @@
 package Ingredientes;
 
-public class Ovo extends AdicionaisLanche{
-    Recheio recheio_base;
-    
-    
-    public Ovo(Recheio l){
-        this.recheio_base = l;
-    }
+public class Ovo extends AdicionalLanche {
 
+	public Ovo(Recheio recheio) {
+		super(recheio);
+	}
 
-    
-    @Override
-    public String getDescricao(){
-        return this.recheio_base.getDescricao() + ",Ovo";
-    }
-    
-    @Override
-    public float calcularPreco(){
-        return recheio_base.calcularPreco() + (float) 1.00;
-    }
+	@Override
+	public String getDescricao() {
+		return super.getDescricao() + ",Ovo";
+	}
 
-
-  
+	@Override
+	public double calcularPreco() {
+		return super.calcularPreco() + (double) 1.00;
+	}
 
 }

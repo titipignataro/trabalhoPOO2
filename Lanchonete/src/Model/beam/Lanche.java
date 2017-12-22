@@ -2,6 +2,7 @@ package Model.beam;
 
 import Ingredientes.Queijo;
 import Ingredientes.Recheio;
+import Memento.LancheMemento;
 
 public class Lanche extends Produto {
 
@@ -41,7 +42,6 @@ public class Lanche extends Produto {
 	public String getDescricao() {
 		descricao = "Lanche " + tamanho + "," + "Queijo " + queijo.toString();
 		descricao = descricao + "," + recheio.getDescricao();
-		System.out.println("DESCRICAO : " + descricao);
 		return descricao;
 	}
 
@@ -58,12 +58,25 @@ public class Lanche extends Produto {
 		return precoTotal;
 	}
 
-	public void setDescricao(String d) {
-		descricao = d;
+	public void setDescricao() {
+            descricao = "Lanche " + tamanho + "," + "Queijo " + queijo.toString();
+            descricao = descricao + "," + recheio.getDescricao();
 	}
 
-	public void setPreco(float p) {
-		preco = p;
+	public void setPreco() {
+		double precoTotal = this.recheio.calcularPreco();
+		if (tamanho.equals("Grande")) {
+			precoTotal += (double) 6.00;
+		} else if (tamanho.equals("Medio")) {
+			precoTotal += (double) 3.50;
+		} else {
+			precoTotal += (double) 2.00;
+		}
+                this.preco = precoTotal;
 	}
 
+        
+        public LancheMemento gerarMemento(){
+            return new LancheMemento(preco,tipo,descricao,tamanho,queijo,recheio);
+        }
 }

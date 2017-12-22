@@ -2,11 +2,7 @@ package lanchonete;
 
 
 import Control.PedidoControl;
-import Ingredientes.Hamburger;
 import Model.beam.Lanche;
-import Ingredientes.Recheio;
-import Ingredientes.Queijo;
-import Ingredientes.Salada;
 import Model.beam.Garcom;
 import View.Tela;
 import View.Telacozinha;
@@ -30,12 +26,12 @@ public class Lanchonete {
         
 
         
-        Tela t = new Tela();
+        Tela t1 = new Tela();
+        Tela t2 = new Tela();
         Lanche l = new Lanche();
         
-        Garcom g1 = new Garcom(1,t);
-        Garcom g2 = new Garcom(2,t);
-        Garcom g3 = new Garcom(3,t);
+        Garcom g1 = new Garcom(1,t1);
+        Garcom g2 = new Garcom(2,t2);
         
         Cozinha c = new Cozinha();
         Telacozinha tc = new Telacozinha(c);
@@ -43,14 +39,15 @@ public class Lanchonete {
         
         c.registerObserver(g1);
         c.registerObserver(g2);
-        c.registerObserver(g3);
         
         
-        PedidoControl control = new PedidoControl(t,l,c);
+        PedidoControl control1 = new PedidoControl(t1,l,c);
+        PedidoControl control2 = new PedidoControl(t2,l,c);
         
         
         tc.setVisible(true);
-        t.setVisible(true);
+        t1.setVisible(true);
+        t2.setVisible(true);
         
         
         
